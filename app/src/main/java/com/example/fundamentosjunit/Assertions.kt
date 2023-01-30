@@ -1,7 +1,14 @@
 package com.example.fundamentosjunit
 
+import android.telephony.TelephonyCallback.CellLocationListener
+
 class Assertions {
     private val user = User ("Juanes", 24)
+    private var location = "US"
+
+    fun setLocation(location: String){
+        this.location = location
+    }
 
     fun getLuckyNumbers(): Array<Int>{
         return arrayOf(21, 117)
@@ -23,6 +30,7 @@ class Assertions {
     fun isAdult(user: User): Boolean{
         if (!user.isHuman) return true
 
-        return user.age >= 18
+        return if (location == "US") user.age >= 21
+        else return user.age >= 18
     }
 }
