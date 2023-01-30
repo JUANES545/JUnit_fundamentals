@@ -61,7 +61,7 @@ class AssertionsTest{
 
     @Test(timeout = 1_000)
     fun getCitiesTest(){ // Espera x tiempo para ejecutar la prueba
-        val cities = arrayOf("Mexico", "Peru", "Argentina")
+        val cities = arrayOf("México", "Perú", "Argentina")
         //Thread.sleep(Random.nextLong(200, 1100))
         Thread.sleep(Random.nextLong(950, 1_050))
         assertEquals(3, cities.size)
