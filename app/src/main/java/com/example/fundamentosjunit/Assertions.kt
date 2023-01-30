@@ -3,8 +3,8 @@ package com.example.fundamentosjunit
 class Assertions {
     private val user = User ("Juanes", 24)
 
-    fun getluckyNumbres(): Array<Int>{
-        return arrayOf(2, 117)
+    fun getLuckyNumbers(): Array<Int>{
+        return arrayOf(21, 117)
     }
 
     fun getName(): String{
