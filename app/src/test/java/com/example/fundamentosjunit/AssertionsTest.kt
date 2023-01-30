@@ -2,6 +2,7 @@ package com.example.fundamentosjunit
 
 import org.junit.Assert.*
 import org.junit.Test
+import kotlin.random.Random
 
 class AssertionsTest{
     @Test
@@ -56,6 +57,14 @@ class AssertionsTest{
         val juan = User("Juan", 18, true)
         val copyJuan = juan
         assertSame(copyJuan, juan)
+    }
+
+    @Test(timeout = 1_000)
+    fun getCitiesTest(){ // Espera x tiempo para ejecutar la prueba
+        val cities = arrayOf("Mexico", "Peru", "Argentina")
+        //Thread.sleep(Random.nextLong(200, 1100))
+        Thread.sleep(Random.nextLong(950, 1_050))
+        assertEquals(3, cities.size)
     }
 
 }
