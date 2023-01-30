@@ -1,5 +1,6 @@
 package com.example.fundamentosjunit
 
+import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 
@@ -17,6 +18,14 @@ class AssertionsUsersTest {
     fun setup(){
         bot = User("8bit", 1, false)
         juan = User("Juan", 18, true)
+        println("Before")
+    }
+
+    @After
+    fun tearDown(){
+        bot = User()
+        juan = User()
+        println("After")
     }
 
     @Test
@@ -24,10 +33,12 @@ class AssertionsUsersTest {
         val assertions = Assertions()
         assertFalse(assertions.checkHuman(bot))
         assertTrue(assertions.checkHuman(juan))
+        println("checkHumanTest")
     }
 
     @Test
     fun checkNotNullUserTest(){
         assertNotNull(juan)
+        println("checkNotNullUserTest")
     }
 }
