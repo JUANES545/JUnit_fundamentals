@@ -1,18 +1,28 @@
 package com.example.fundamentosjunit
 
-import org.junit.After
+import org.junit.*
 import org.junit.Assert.*
-import org.junit.Before
-
-import org.junit.Test
 
 class AssertionsUsersTest {
 
     // Recomendaciones para variables en Testing
 
     private lateinit var bot: User
-    private lateinit var juan: User
 
+    companion object{
+        private lateinit var juan: User
+        @BeforeClass @JvmStatic
+        fun setupCommon(){
+            juan = User("Juan", 18, true)
+            println("BeforeClass")
+        }
+
+        @AfterClass @JvmStatic
+        fun tearDownCommon(){
+            juan = User()
+            println("AfterClass")
+        }
+    }
 
     @Before // Esto se va a ejecutar antes de cada prueba
     fun setup(){
@@ -40,5 +50,15 @@ class AssertionsUsersTest {
     fun checkNotNullUserTest(){
         assertNotNull(juan)
         println("checkNotNullUserTest")
+    }
+
+    @Test
+    fun checkNotSameUsersTest(){
+        assertNotSame(bot, juan)
+    }
+    @Test
+    fun checkSameUsersTest(){ // No son el mismo objeto
+        val copyJuan = juan
+        assertSame(copyJuan, juan)
     }
 }
